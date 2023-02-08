@@ -1,0 +1,26 @@
+<h3>film ändern</h3>
+<hr>
+<form th:action="@{/updatefilm}" class="col-4">
+    <div class="mb-3">
+        <label for="filmTitel" class="form-label">Titel</label>
+        <!-- th:name definiert den Namen des Feldes, welches der Controller in der Methodensignatur entgegennimmt. -->
+        <input type="text" class="form-control" id="filmTitel" th:value="${film.getTitel()}" th:name="filmTitel">
+    </div>
+
+    <div class="mb-3">
+        <label for="filmFsk" class="form-label">Fsk</label>
+        <input type="text" class="form-control" id="filmFsk" th:value="${film.getFsk()}" th:name="filmFsk">
+    </div>
+
+    <div class="mb-3">
+        <label for="filmLaenge" class="form-label">Alter</label>
+        <input type="number" class="form-control" id="filmLaenge" th:value="${film.getLaenge()}" th:name="filmLeange">
+    </div>
+
+    <!-- Die zu ändernde ID wird hier mit in das Formular gegeben, um auch das richtige Element zu ändern. -->
+    <input type="number" class="form-control" th:value="${id}" th:name="id" style="display: none;" >
+    <div>
+        <a class="btn btn-primary" role="button" th:href="@{/filme}">Zurück</a>
+        <button type="submit" class="btn btn-success">Speichern</button>
+    </div>
+</form>

@@ -1,0 +1,68 @@
+<hr>
+<h1>Spiele</h1>
+<hr>
+<table class="table table-bordered border-primary table-dark">
+    <thead>
+      <tr> 
+        <th scope="col">
+            <a class="btn btn-outline-primary" role="button" th:href="@{/spielX(id=${0})}">Werfen</a>
+        </th>
+        <th scope="col">
+            <a class="btn btn-outline-primary" role="button" th:href="@{/spielX(id=${1})}">Werfen</a>
+        </th>
+        <th scope="col">
+            <a class="btn btn-outline-primary" role="button" th:href="@{/spielX(id=${2})}">Werfen</a>
+        </th>
+        <th scope="col">
+            <a class="btn btn-outline-primary" role="button" th:href="@{/spielX(id=${3})}">Werfen</a>
+        </th>
+        <th scope="col">
+            <a class="btn btn-outline-primary" role="button" th:href="@{/spielX(id=${4})}">Werfen</a>
+        </th>
+        <th scope="col">
+            <a class="btn btn-outline-primary" role="button" th:href="@{/spielX(id=${5})}">Werfen</a>
+        </th>
+        <th scope="col">
+            <a class="btn btn-outline-primary" role="button" th:href="@{/spielX(id=${6})}">Werfen</a>
+        </th>
+      </tr>
+    </thead>
+
+    <tr th:each="feld: ${felder}">
+        <td th:each="f: ${feld}">
+            <span th:if="${f.getFrei()}==true">.</span>
+
+            <span th:unless="${f.getFrei()}==true">
+                <span th:if="${f.getXo()}==true">O</span>
+                <span th:unless="${f.getXo()}==true">X</span>
+            </span>
+            
+        </span>
+    </tr>
+
+</table>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+  </button>
+<span th="ge: ${gewonnen}">
+    <span th:if="${ge}==true">
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    ...
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+</span>
