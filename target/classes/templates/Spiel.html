@@ -5,25 +5,25 @@
     <thead>
       <tr> 
         <th scope="col">
-            <a class="btn btn-outline-primary" role="button" th:href="@{/spielX(id=${0})}">Werfen</a>
+            <a class="btn btn-outline-primary" role="button" th:href="@{/playerInt(id=${0})}">Werfen</a>
         </th>
         <th scope="col">
-            <a class="btn btn-outline-primary" role="button" th:href="@{/spielX(id=${1})}">Werfen</a>
+            <a class="btn btn-outline-primary" role="button" th:href="@{/playerInt(id=${1})}">Werfen</a>
         </th>
         <th scope="col">
-            <a class="btn btn-outline-primary" role="button" th:href="@{/spielX(id=${2})}">Werfen</a>
+            <a class="btn btn-outline-primary" role="button" th:href="@{/playerInt(id=${2})}">Werfen</a>
         </th>
         <th scope="col">
-            <a class="btn btn-outline-primary" role="button" th:href="@{/spielX(id=${3})}">Werfen</a>
+            <a class="btn btn-outline-primary" role="button" th:href="@{/playerInt(id=${3})}">Werfen</a>
         </th>
         <th scope="col">
-            <a class="btn btn-outline-primary" role="button" th:href="@{/spielX(id=${4})}">Werfen</a>
+            <a class="btn btn-outline-primary" role="button" th:href="@{/playerInt(id=${4})}">Werfen</a>
         </th>
         <th scope="col">
-            <a class="btn btn-outline-primary" role="button" th:href="@{/spielX(id=${5})}">Werfen</a>
+            <a class="btn btn-outline-primary" role="button" th:href="@{/playerInt(id=${5})}">Werfen</a>
         </th>
         <th scope="col">
-            <a class="btn btn-outline-primary" role="button" th:href="@{/spielX(id=${6})}">Werfen</a>
+            <a class="btn btn-outline-primary" role="button" th:href="@{/playerInt(id=${6})}">Werfen</a>
         </th>
       </tr>
     </thead>
@@ -42,11 +42,7 @@
 
 </table>
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Launch static backdrop modal
-  </button>
-<span th="ge, counter: ${gewonnen}">
-    <span th:if="${ge.getGewonnen}==true">
+    <span th:if="${gewonnen.getGewonnen()}==true">
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -64,5 +60,12 @@
                 </div>
             </div>
         </div>
-    </span>
 </span>
+<script>
+    $(document).ready(function(){
+        $('#staticBackdrop').modal('show');
+        console.log("HALLO!");
+        console.log('#staticBackdrop');
+
+    })
+</script>

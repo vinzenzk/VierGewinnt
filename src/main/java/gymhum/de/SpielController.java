@@ -33,12 +33,13 @@ public class SpielController {
     {
         model.addAttribute("activePage", "Spiel");
         model.addAttribute("felder", getFelder());   
+        model.addAttribute("gewonnen",  getG1());
         return "index.html";
     }
 
-    @GetMapping("/spielX")
+    @GetMapping("/playerInt")
     public String showSpielX(@RequestParam(name="activePage", required = true, defaultValue = "Spiel") String activePage, @RequestParam(name="id", required = true) int id, Model model) {
-        model.addAttribute("gewonnen", getG1());
+        //model.addAttribute("gewonnen",  getG1());
         for(int i = 5; i >= 0; i--) {
             if(getFelder()[i][id].getFrei()) {
                 if(s1.getSpieler() == true) {
@@ -91,10 +92,10 @@ public class SpielController {
                         System.out.println("2Spieler X hat gewonnen");
                         g1.setGewonnen(true);
                         
-                    }
-                } else if(getFelder()[i][k].getXo() && getFelder()[i][k+1].getXo() && getFelder()[i][k+2].getXo() && getFelder()[i][k+3].getXo()) {
+                    } else if(getFelder()[i][k].getXo() && getFelder()[i][k+1].getXo() && getFelder()[i][k+2].getXo() && getFelder()[i][k+3].getXo()) {
                     System.out.println("2Spieler O hat gewonnen");
                     g1.setGewonnen(true);
+                    }
                 }
             }
         }
@@ -105,10 +106,10 @@ public class SpielController {
                     if(getFelder()[i][k].getXo()==false && getFelder()[i+1][k].getXo()==false && getFelder()[i+2][k].getXo()==false && getFelder()[i+3][k].getXo()==false){
                         System.out.println("3Spieler X hat gewonnen");
                         g1.setGewonnen(true);
-                    }
-                } else if(getFelder()[i][k].getXo() && getFelder()[i+1][k].getXo() && getFelder()[i+2][k].getXo() && getFelder()[i+3][k].getXo()) {
+                    } else if(getFelder()[i][k].getXo() && getFelder()[i+1][k].getXo() && getFelder()[i+2][k].getXo() && getFelder()[i+3][k].getXo()) {
                     System.out.println("3Spieler O hat gewonnen");
-                    g1.setGewonnen(true);
+                    g1.setGewonnen(true);             
+                    }
                 }
             }
         }
@@ -119,10 +120,10 @@ public class SpielController {
                     if(getFelder()[i][k].getXo()==false && getFelder()[i+1][k+1].getXo()==false && getFelder()[i+2][k+2].getXo()==false && getFelder()[i+3][k+3].getXo()==false){
                         System.out.println("4Spieler X hat gewonnen");
                         g1.setGewonnen(true);
-                    }
-                } else if(getFelder()[i][k].getXo() && getFelder()[i+1][k+1].getXo() && getFelder()[i+2][k+2].getXo() && getFelder()[i+3][k+3].getXo()) {
+                    } else if(getFelder()[i][k].getXo() && getFelder()[i+1][k+1].getXo() && getFelder()[i+2][k+2].getXo() && getFelder()[i+3][k+3].getXo()) {
                     System.out.println("4Spieler O hat gewonnen");
                     g1.setGewonnen(true);
+                    }
                 }
             }
         }
@@ -133,10 +134,10 @@ public class SpielController {
                     if(getFelder()[i][k].getXo()==false && getFelder()[i-1][k+1].getXo()==false && getFelder()[i-2][k+2].getXo()==false && getFelder()[i-3][k+3].getXo()==false){
                         System.out.println("5Spieler X hat gewonnen");
                         g1.setGewonnen(true);
-                    }
-                } else if(getFelder()[i][k].getXo() && getFelder()[i-1][k+1].getXo() && getFelder()[i-2][k+2].getXo() && getFelder()[i-3][k+3].getXo()) {
+                    } else if(getFelder()[i][k].getXo() && getFelder()[i-1][k+1].getXo() && getFelder()[i-2][k+2].getXo() && getFelder()[i-3][k+3].getXo()) {
                     System.out.println("5Spieler O hat gewonnen");
                     g1.setGewonnen(true);
+                    }
                 }
             }
         }
