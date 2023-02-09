@@ -38,7 +38,7 @@ public class SpielController {
 
     @GetMapping("/spielX")
     public String showSpielX(@RequestParam(name="activePage", required = true, defaultValue = "Spiel") String activePage, @RequestParam(name="id", required = true) int id, Model model) {
-        model.addAttribute("gewonnen", getG1().getGewonnen());
+        model.addAttribute("gewonnen", getG1());
         for(int i = 5; i >= 0; i--) {
             if(getFelder()[i][id].getFrei()) {
                 if(s1.getSpieler() == true) {
